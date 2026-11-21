@@ -1,0 +1,29 @@
+{
+  "model_name": "Four-predictor logistic model for 30-day combined endpoint after PE",
+  "model_type": "binary logistic regression",
+  "target": "Комб КТ 30 дней",
+  "target_horizon_days": 30,
+  "development_population": "stable hemodynamics; risk groups 2 or 3; complete data for all four predictors",
+  "development_n": 241,
+  "development_events": 48,
+  "intercept": -2.9908061853634647,
+  "coefficients": {
+    "low_hb": 1.604313608706529,
+    "atrial_fibrillation": 1.3918853652584597,
+    "immobilization_4_weeks": 1.218753367733765,
+    "tapse_below_16": 1.2275903731972855
+  },
+  "encoding": "0=absent; 1=present",
+  "probability_formula": "P = 1 / (1 + exp(-z))",
+  "oob_internal_validation": {
+    "auc_approx": 0.696,
+    "brier_score_approx": 0.131,
+    "external_validation": false
+  },
+  "exploratory_cutoffs": {
+    "0.08": {"sensitivity": 0.938, "specificity": 0.404, "ppv": 0.281, "npv": 0.963},
+    "0.3825_youden": {"sensitivity": 0.521, "specificity": 0.881, "ppv": 0.521, "npv": 0.881}
+  },
+  "critical_unresolved_item": "Exact numeric definition of low_hb is not available in the checked variable dictionary; must be confirmed from study protocol/source coding before public release.",
+  "clinical_warning": "Research use only; not externally validated; not for treatment decisions."
+}
